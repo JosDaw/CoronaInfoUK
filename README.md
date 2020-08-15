@@ -10,6 +10,8 @@ The site currently incorporates API data from <a href="https://coronavirus.data.
 as well as data manually input into a Google Sheets database. 
 The database can be viewed here: <a href="https://docs.google.com/spreadsheets/d/1JfqJ153dHK8AabuJvJ2V4cbRWOiywP9HQCEwFUBIxxc/edit?usp=sharing">UK COVID-19 - CoronaInfoUK Sheet</a>.
 
+![UK API Chart](/images/UKAPIChart.png)
+
 ## Technologies
 - Bootstrap 4
 - PHP 
