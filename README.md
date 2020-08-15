@@ -8,7 +8,8 @@ This project was initially developed in March 2020 as a substitute for the lack 
 Since that time, the project has been updated to reflect new data collection methods. 
 The project currently incorporates API data from <a href="https://coronavirus.data.gov.uk/">the official government site</a>,
 as well as data manually input into a Google Sheets database. 
-The database can be viewed here: <a href="https://docs.google.com/spreadsheets/d/1JfqJ153dHK8AabuJvJ2V4cbRWOiywP9HQCEwFUBIxxc/edit?usp=sharing">UK COVID-19 - CoronaInfoUK Sheet</a>.
+The database can be viewed here: 
+<a href="https://docs.google.com/spreadsheets/d/1JfqJ153dHK8AabuJvJ2V4cbRWOiywP9HQCEwFUBIxxc/edit?usp=sharing">UK COVID-19 - CoronaInfoUK Sheet</a>.
 
 ## Technologies
 - Bootstrap 4
@@ -19,10 +20,12 @@ The database can be viewed here: <a href="https://docs.google.com/spreadsheets/d
 
 ## Examples
 The chart below uses API data combined with Google Charts
-![UK API Chart](/images/UKAPIChart.png)
+<br/>
+<img src="/images/UKAPIChart.png" alt="UK API Chart" width="400"/>
 
 The charts below use Google Sheets data with Google Charts
-![UK Data](/images/UKData.png)
+<br/>
+<img src="/images/UKData.png" alt="UK Data" width="400"/>
 
 
 ## Installation
@@ -46,4 +49,4 @@ This project will continue to be updated as additional sources of statistical da
 Please contact contact@coronainfo.uk for more support or information about this project.
 
 ## License 
-MIT License
+[MIT License](/LICENSE.txt)
