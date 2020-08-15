@@ -1,0 +1,1160 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+    position: relative; 
+}
+
+p {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.btn {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+header {
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+table {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+/*Navbar*/
+.navbar {
+    height: 40px;
+    font-family: 'Titillium Web', sans-serif;
+  }
+
+.dropdown-header {
+    border-top: solid 1px rgba(0,0,0,.15);
+    color: grey !important;
+}
+
+/*fix scroll jump issue */
+.container::before {
+    display: block;
+    height: 100px;  
+    margin-top: -70px;  
+    visibility: hidden;
+    content: "";
+}
+
+.container {
+    margin-bottom: -15px;
+}
+
+header {
+    margin-top: 40px;  
+}
+
+
+/*info at the top of the page */
+.lead-info{
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+.lead-info p {
+    font-size: x-large;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.lead-info p.updated-info {
+    color: red;
+    font-size: initial;
+    margin-top: 0;
+    padding-top: 0;
+    text-align: center;
+}
+
+.lead-info .top-info {
+    max-width: 25%;
+    margin: 0 auto;
+    display:inline-block;
+}
+
+
+.lead-info .small-info {
+    font-size: x-small;
+}
+.lead-info .medium-info {
+    font-size: smaller;
+}
+
+.small-info {
+    font-size: small;
+    color: red;
+}
+
+.updated-info {
+    color: red;
+}
+
+/*for the charts */
+.chart-container {
+    max-width: 700px;
+    margin: 15px auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.chart-container .hideButton {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-container .hideButton button{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    margin-bottom: 10px;
+}
+
+
+.chart-container .chart {
+    align-content: center;
+}
+
+.sources {
+    width: 100%;
+    text-align: center;
+}
+
+.uk-class .chart-container{
+    border: 1px solid #008FFB;
+}
+
+.uk-class h3 {
+    color: #008FFB;
+}
+
+.eng-class .chart-container{
+    border: 1px solid #A300D6;
+}
+
+.eng-class h3{
+    color: #A300D6;
+}
+
+.wales-class .chart-container {
+    border: 1px solid #F86624;
+    border-radius: 5px;
+}
+
+.wales-class .extra-info {
+    border: 1px solid #F86624 !important;
+    border-radius: 5px;
+}
+
+.wales-class .extra-info h3 {
+    color: #F86624;
+}
+
+.wales-class h3 {
+    color: #F86624;
+}
+
+.NI-class .chart-container {
+    border: 1px solid #2b908f;
+}
+
+.NI-class h3 {
+    color: #2b908f;
+}
+
+.NI-class .extra-info {
+    border: 1px solid #2b908f !important;
+    border-radius: 5px;
+}
+
+.NI-class .extra-info h3 {
+    color: #2b908f;
+}
+
+.scots-class {
+    border: 1px solid  #3f51b5;
+}
+
+.scots-class h3 {
+    color:  #3f51b5;
+}
+
+#worldcases .chart-container {
+    border: 1px solid#FF4560;
+}
+
+#worldcases h3 {
+    color: #FF4560;
+}
+
+/*For switching between chart and table */
+.swap-button {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.swap-button button{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+/*For the UK cases & deaths */
+#swapUKcaseschart {
+    display: visible;
+}
+
+#swapUKcasestable {
+    display: none;
+}
+
+/*for uk buttons */
+.uk-class .btn-info {
+    background-color: #008FFB;
+    border: none;
+}
+
+.uk-class .btn-info:focus {
+    color: #fff;
+    background-color: #008FFB;
+    border-color: #008FFB;
+    box-shadow: 0 0 0 .2rem rgba(54, 171, 192, 0.5);
+}
+
+.uk-class .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+    color: #fff;
+    background-color:#0064af;
+    border-color:#0064af;
+}
+
+.uk-class .btn-info:hover {
+    color: #fff;
+    background-color:#0064af;
+    border-color:#0064af;
+}
+
+.uk-class a:hover {
+    text-decoration: none;
+}
+
+/*for the england buttons*/
+.eng-class .btn-info {
+    background-color: #A300D6;
+    border: none;
+}
+
+.eng-class .btn-info:focus {
+    color: #fff;
+    background-color: #A300D6;
+    border-color: #A300D6;  
+    box-shadow: 0 0 0 .2rem rgba(160, 54, 192, 0.5);
+}
+
+.eng-class .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+    color: #fff;
+    background-color:#610080;
+    border-color:#610080;
+}
+
+.eng-class .btn-info:hover {
+    color: #fff;
+    background-color:#610080;
+    border-color:#610080;
+}
+
+/*wales class butttons */
+.wales-class .btn-info {
+    background-color: #F86624;
+    border: none;
+}
+
+.wales-class .btn-info:focus {
+    color: #fff;
+    background-color: #F86624;
+    border-color: #F86624; 
+    box-shadow: 0 0 0 .2rem rgba(235, 97, 17, 0.5);
+}
+
+.wales-class .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+    color: #fff;
+    background-color:#c6511c;
+    border-color: #c6511c;
+}
+
+.wales-class .btn-info:hover {
+    color: #fff;
+    background-color:#c6511c;
+    border-color:#c6511c;
+}
+
+/*scotland class buttons */
+.scots-class .btn-info{
+    background-color: #3f51b5;
+    border: none !important;
+}
+
+.scots-class .btn-info:focus {
+    color: #fff;
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 .2rem rgba(48, 46, 189, 0.5);
+}
+
+.scots-class .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+    color: #fff;
+    background-color:#324090;
+    border-color: #324090;
+}
+
+.scots-class .btn-info:hover {
+    color: #fff;
+    background-color:#324090;
+    border-color:#324090;
+}
+
+/*NI buttons */
+.NI-class .btn-info{
+    background-color: #2b908f;
+    border: none !important;
+}
+
+.NI-class .btn-info:focus {
+    color: #fff;
+    background-color: #2b908f;
+    border-color: #2b908f;
+    box-shadow: 0 0 0 .2rem rgba(30,100,100, 0.5);
+}
+
+.NI-class .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+    color: #fff;
+    background-color:#227372;
+    border-color: #227372;
+}
+
+.NI-class .btn-info:hover {
+    color: #fff;
+    background-color:#227372;
+    border-color:#227372;
+}
+
+/*extra information */
+#about .extra-info p{
+    text-align: left;
+}
+
+.extra-info {
+    text-align: center;
+    border: 1px solid #008FFB;
+    border-radius: 5px;
+    max-width: 700px;
+    margin: 10px auto;
+    margin-bottom: 1em;
+}
+
+.extra-info p {
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+}
+
+.extra-info h3 {
+    color: #008FFB;
+}
+
+#sources .extra-info  h4 {
+    color: #008FFB;
+}
+
+.extra-info ol {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.extra-info ol li {
+    text-align: left;
+}
+
+.extra-info ul {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.extra-info ul li {
+    text-align: left;
+}
+
+.info-table {
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+/* scroll */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+
+/*social media buttons */
+/*For the social media links */
+.social-media {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.social-media .fab {
+    padding: 10px;
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.social-media .fab:hover {
+    opacity: 0.7;
+    color: white;
+    text-decoration: none;
+}
+
+.fa-facebook-f {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+
+/*For the footer */
+footer {
+    text-align: center;
+    font-size: small;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+/*for the google tables */
+.update-chart {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.update-chart text {
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
+.update-chart .google-visualization-table-table {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 1rem !important;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left !important;
+}
+
+.update-chart .google-visualization-table .gradient {
+    background-image: none;
+    background-color: #fff;
+    border-bottom: 2px solid black;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.update-chart .google-visualization-table-td {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.update-chart .google-visualization-table-tr-odd {
+    background-color: rgba(82, 81, 81, 0.05);
+}
+
+.update-chart .google-visualization-controls-stringfilter {
+    font-family: 'Titillium Web', sans-serif !important;
+    max-width: 50%;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.update-chart .google-visualization-controls-label {
+    padding-top: 0 !important;
+}
+
+.update-chart .google-visualization-controls-stringfilter input {
+    border: 1px solid black;
+}
+
+.update-chart .google-visualization-controls-stringfilter input:focus {
+    border-color: #008FFB;
+}
+
+/*for the map */
+.map-container {
+    max-width: 700px;
+    margin: 15px auto;
+    border: 1px solid #008FFB;
+    border-radius: 5px;
+}
+
+/*For the map size */
+.map-container .map {
+    max-width: 50%;
+    margin: 3px auto;
+}
+
+.map-container h2, h3 {
+    color: #008FFB;
+}
+
+.map-container .small-info {
+    font-size: small;
+    color: red;
+}
+
+svg {
+    display: block;
+    width: 100%;
+}
+
+.map-container svg path {
+    stroke:white;
+    stroke-width: 2;
+}
+
+.map-container svg polygon {
+    stroke:white;
+    stroke-width: 2;
+}
+
+.map-container .sources {
+    padding-left: 5px;
+}
+
+/*for the popups */
+.map-popup {
+    max-width: 400px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 6px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    display: none;
+    border: 1px solid grey;
+    filter: drop-shadow(0 0 3px #333);
+    will-change: filter;
+}
+  
+.map-popup::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    position: absolute;
+}
+  
+.map-popup p {
+    text-align: center;
+}
+
+.map-popup .small-info {
+    font-size: small;
+    color: #324090;
+}
+
+.map-container path:hover {
+    fill: #00E396 !important;
+}
+
+.map-container polygon:hover {
+    fill: #00E396 !important;
+}
+
+/* for the wales map popup */
+.wales-map .map-popup {
+    top: 30% !important;
+}
+
+.wales-map .close-btn {
+    display: inline !important;
+    cursor: pointer !important;
+}
+
+/*for the NI map */
+.NI-class .map-container {
+    max-width: 650px;
+    margin: 15px auto;
+    border: 1px solid #2b908f !important;
+    border-radius: 5px;
+}
+
+.NI-class .map-container h2 {
+    color: #2b908f !important;
+}
+
+.NI-map .map-popup {
+    top: 30% !important;
+}
+
+.NI-map .close-btn {
+    display: inline !important;
+    cursor: pointer !important;
+}
+
+.map-container .map-legend {
+    text-align: center;
+}
+
+.map-container .map-legend p {
+    margin: 0;
+}
+
+.map-container .map-gradient {
+    width: 200px;
+    height: 25px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(13, 134, 215,1) 0%, rgba(201,228,246,1), rgb(239, 247, 253) 100%);
+    margin: 0 auto;
+    border: 1px solid grey;
+}
+
+.map-container .fa-window-close {
+    font-size: 40px;
+    color:red;
+}
+
+/* For the map buttons */
+.map-btn-group {
+    width: 75%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-btn-group .death-button {
+    margin: 0 auto;
+    width: 49%;
+}
+
+.death-button h4 {
+    margin-bottom: 0;
+}
+
+.map-btn-group .cases-button {
+    margin: 0 auto;
+    width: 49%;
+}
+
+.cases-button h4 {
+    margin-bottom: 0;
+}
+
+.eng-class .map-container  {
+    max-width: 700px;
+    margin: 15px auto;
+    border: 1px solid #A300D6;
+    border-radius: 5px;
+}
+
+.eng-class .map-container  h2 {
+    color: #A300D6;
+}
+
+.wales-class .map-container  {
+    max-width: 700px;
+    margin: 15px auto;
+    border: 1px solid #F86624;
+    border-radius: 5px;
+}
+
+.wales-class .map-container  h2 {
+    color: #F86624;
+}
+
+.wales-class .map-container .map-gradient {
+    width: 200px;
+    height: 25px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(248, 102, 36,1) 0%, rgba(252, 151, 105,1), rgb(250, 217, 203) 100%);
+    margin: 0 auto;
+    border: 1px solid grey;
+}
+
+#wales-regional-table {
+    padding: 3px;
+}
+
+.NI-class .map-container .map-gradient {
+    width: 200px;
+    height: 25px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(43,144,143) 0%, rgba(127,188,187,1), rgb(191,221,221) 100%);
+    margin: 0 auto;
+    border: 1px solid grey;
+}
+
+#NI-demographics-chart{
+    display: inline-block;
+    width: 300px;
+}
+
+#NI-demographics-gender-chart {
+    display: inline-block;
+    width: 200px;
+}
+
+#NI-death-demographics-chart{
+    display: inline-block;
+    width: 300px;
+}
+
+#NI-death-demographics-gender-chart {
+    display: inline-block;
+    width: 200px;
+}
+
+/*for the live update cases/deaths data */
+.live-update-table {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.live-update-table .google-visualization-table-table {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 1rem !important;
+    text-align: left !important;
+    border: none !important;
+}
+
+.live-update-table .google-visualization-table-table .google-visualization-table-tr-head {
+    background-color: none !important;
+    display: none !important;
+    border: none !important;
+}
+
+.live-update-table .google-visualization-table .gradient {
+    background-image: none;
+    background-color: none !important;
+    display: none !important;
+    border: none !important;
+}
+
+.live-update-table .google-visualization-table-td {
+    border: none !important;
+}
+
+.live-update-table .google-visualization-table-tr-sel {
+    background-color: white;
+}
+
+.live-update-table .google-visualization-table-td:hover {
+    background-color: white !important;
+}
+
+.live-update-table .google-visualization-table-tr-even:hover {
+    background-color: white !important;
+}
+
+.live-update-table .google-visualization-table-tr-odd {
+    background-color: white;
+    border: none !important;
+    color: red;
+    font-size: smaller;
+    text-align: right;
+}
+
+.live-update-table .google-visualization-table-type-number {
+    text-align: left !important;
+}
+
+/*Live update for the map */
+.map-popup .live-update-table .google-visualization-table-tr-odd {
+    background-color: white;
+    border: none !important;
+    color: black !important;
+    font-size: 1rem !important;
+    text-align: left !important;
+}
+
+/*For the live update on the lead info */
+.top-info .live-update-table .google-visualization-table-table {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 1.5rem !important;
+    text-align: left !important;
+    border: none !important;
+}
+
+.top-info .live-update-table .google-visualization-table-tr-odd {
+    background-color: white;
+    border: none !important;
+    color: red;
+    font-size: 1rem !important;
+    padding: 0 !important;
+    text-align: right;
+}
+
+.top-info .live-update-table .google-visualization-table-type-number {
+    background-color: white;
+    border: none !important;
+    text-align: left !important;
+}
+
+.lead-info .top-info {
+    max-width: 50%;
+}
+
+.update-chart text {
+    font-family:'Titillium Web', sans-serif !important;
+}
+
+/*For the support button */
+.donate-class {
+    margin: 0 auto;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 5px;
+}
+
+/*For the small support button */
+.small-support {
+    margin: 2px;
+    padding: 5px;
+    display: inline-block;
+}
+
+/*For the google charts tool tips */
+.google-visualization-tooltip {
+    padding: 1px !important;   
+} 
+
+.google-visualization-tooltip-item-list { 
+    padding: 0px !important;  
+    margin:0px !important;
+}
+
+.google-visualization-tooltip-item {
+    padding: 0px !important;  
+    margin:0px !important;  
+}
+
+.google-visualization-tooltip span {
+    text-align: center !important;
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 15px !important;
+} 
+
+/*for the mini charts */
+.mini-chart {
+    max-width: 35%;
+    max-height: 60%;
+    margin: 0 auto;
+}
+
+.NI-FAQ >  h6{
+    color: #2b908f;
+    padding: 0;
+    margin: 0;
+}
+
+.eng-FAQ > h6 {
+    color: #A300D6;
+    padding: 0;
+    margin: 0;
+}
+
+.wales-FAQ > h6 {
+    color: #F86624;
+    padding: 0;
+    margin: 0;
+}
+
+.UK-FAQ > h6 {
+    color: #008FFB;
+    padding: 0;
+    margin: 0;
+}
+
+/**MEDIA QUERIES **/
+@media screen and (max-width: 1200px) {
+    .navbar {
+        height: auto;
+    }
+
+    header {
+        margin-top: 3em;
+    }
+    .col-lg .container::before {
+        display: block;
+        height: 100px;  
+        margin-top: -50px;  
+        visibility: hidden;
+        content: "";
+    }
+
+    .col-lg .container {
+        margin-bottom: -25px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .navbar {
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .mini-chart {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    
+    .top-info .live-update-table {
+        max-width: 100%;
+    }
+
+    .top-info .live-update-table .google-visualization-table-table {
+        font-family: 'Titillium Web', sans-serif !important;
+        font-size: 20px !important;
+        text-align: left !important;
+        border: none !important;
+    }
+
+    .top-info .live-update-table .google-visualization-table-table-td {
+        padding: 0 !important;
+    }
+    
+    .top-info .live-update-table .google-visualization-table-tr-odd {
+        background-color: white;
+        border: none !important;
+        color: red;
+        font-size: 15px !important;
+        padding: 0 !important;
+        text-align: right;
+    }
+    
+    .top-info .live-update-table .google-visualization-table-type-number {
+        background-color: white;
+        border: none !important;
+        text-align: left !important;
+    }
+
+    .donate-class {
+        margin: 0 auto;
+        margin-bottom: 5px;
+    }
+
+
+    #England-regional-pie {
+        width: 350px !important;
+    }
+
+    #NI-demographics-chart{
+        width: 350px; 
+    }
+
+    #ONS-UK-age-live-pie-chart{
+        width: 350px; 
+    }
+    .uk-class .chart-container{
+        border: none !important;
+    }
+
+    .uk-class h3 {
+        border: 1px solid #008FFB !important;
+        border-radius: 5px;
+    }
+
+    .uk-class .map-popup h3 {
+        border: none;
+    }
+
+    #worldcases .chart-container {
+        border: none;
+    }
+    
+    #worldcases h3 {
+        border: 1px solid #FF4560 !important;
+        border-radius: 5px;
+    }
+
+
+    .wales-class .chart-container{
+        border: none;
+    }
+
+    .wales-class h3 {
+        border: 1px solid #F86624;
+        border-radius: 5px;
+    }
+
+    .wales-class .map-popup h3 {
+        border: none;
+    }
+
+    .wales-class .extra-info {
+        border: none !important;
+    }
+
+    .eng-class .chart-container{
+        border: none;
+    }
+
+    .eng-class h3 {
+        border: 1px solid #A300D6;
+        border-radius: 5px;
+    }
+
+    .eng-class .map-popup h3 {
+        border: none;
+    }
+
+    .eng-class .extra-info {
+        border: none !important;
+    }
+
+    .scots-class {
+        border: none;
+    }
+    .scots-class .chart-container{
+        border: none;
+    }
+
+    .scots-class h3 {
+        border: 1px solid #3f51b5;
+        border-radius: 5px;
+    }
+
+    .scots-class .map-popup h3 {
+        border: none;
+    }
+
+    .scots-class .extra-info {
+        border: none !important;
+    }
+
+
+    .NI-class .chart-container{
+        border: none;
+    }
+
+    .NI-class h3 {
+        border: 1px solid #2b908f;
+        border-radius: 5px;
+    }
+
+    .NI-class .map-popup h3 {
+        border: none;
+    }
+
+    .NI-class .extra-info {
+        border: none !important;
+    }
+
+    .map-btn-group {
+        width: 100%;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        padding-left: 2px;
+    }
+
+    .map-btn-group .death-button {
+        margin: 0 auto;
+        width: 49%;
+    }
+
+    .map-btn-group .cases-button {
+        margin: 0 auto;
+        width: 49%;
+    }
+    
+    .death-button h4 {
+        font-size: medium;
+        margin-bottom: 0;
+    }
+    
+    .cases-button h4 {
+        font-size: medium;
+        margin-bottom: 0;
+    }
+
+    .col-lg{
+        padding-left: 0.2rem !important;
+        padding-right: 0.2rem !important;
+    }
+
+    .map-container .map {
+        max-width: 80%;
+        margin: 3px auto;
+    }
+
+    .map-popup {
+        padding: 10px;
+        background-color: white;
+        border-radius: 6px;
+        display: none;
+        border: 1px solid grey;
+        filter: drop-shadow(0 0 3px #333);
+        will-change: filter;
+        position: absolute;
+        left: 0;
+        top: 40%;
+        width: 75%;
+    }
+    .map-popup p {
+        text-align: center;
+    }
+
+    .map-popup .small-info {
+        font-size: small;
+        color: #324090;
+    }
+
+    .map-popup .close-btn {
+        display: block;
+        border: none !important;
+     }
+
+    .map-popup::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        background-color: white;
+    }
+
+    .map-container .map-gradient {
+        width: 200px !important;
+        height: 15px !important;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(13, 134, 215,1) 0%, rgba(201,228,246,1) 35%, rgb(239, 247, 253) 100%);
+        margin: 0 auto;
+        border: 1px solid grey;
+    }
+
+    .lead-info p {
+        font-size: large;
+    }
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+
+      <!-- Meta tags -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="copyright" content="Material on this site is the property of CoronaInfo except where specified.">
+      <meta name="keywords" content="UK ONS deaths, all UK covid deaths, CoronaInfo, covid-19 England, corona cases England, corona deaths England, corona London, corona Birmingham, coronavirus England,
+      corona information, corona symptoms, corona advice, covid19 uk, covid19 info uk, corona uk, coronavirus uk, 
+      corona cases uk, corona data uk, corona charts uk, corona deaths uk, corona england, corona scotland, corona wales">
+      <meta name="robots" content="index,follow">
+      <meta name="description" content="Up-to-date UK coronavirus information, including cases and deaths for each region">
+      <meta property="og:site_name" content="CoronaInfo">
+      <meta property="og:title" content="CoronaInfo">
+      <meta property="og:description" content="Up-to-date coronavirus information for the UK">
+      <meta property="og:url" content="http://CoronaInfo.uk/ONS.html">
+
+      <!--Styles & Scripts -->
+      <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400&display=swap" rel="stylesheet"> 
+      <script src="https://kit.fontawesome.com/4eabe4bda9.js" crossorigin="anonymous"></script>
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      
+      <!--Google Charts script -->
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160054052-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-160054052-1');
+      </script>
+
+      <title>ONS Death Data - CoronaInfoUK</title>
+
+
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+        <!--[if lt IE 7]>
+          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please change your browser to see the best version of this site.</p>
+        <![endif]-->
+
+      <!--Navigation-->
+      <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top ">  
+        <a class="navbar-brand" href="index.html">CoronaInfo.UK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              UK
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="index.html#ukcases">Cases & Deaths</a>
+                <a class="dropdown-item" href="index.html#UKmap">Map</a>
+                <a class="dropdown-item" href="index.html#ukdailydeaths">Daily Deaths</a>
+                <a class="dropdown-item" href="index.html#ukcasestests">Tests</a>
+                <a class="dropdown-item" href="index.html#percentagepop">Tested, Infected, & Deceased</a>
+                <a class="dropdown-item" href="index.html#fatalityrate">Fatality Rate</a>
+                <a class="dropdown-item" href="index.html#ONSdeathsagegender">ONS Deaths by Age & Gender</a>
+                <a class="dropdown-item" href="index.html#deathscompare">Deaths per 100k Comparison</a>
+                <!-- <a class="dropdown-item" href="index.html#europecompare">European Deaths Comparison</a> -->
+                <a class="dropdown-item" href="index.html#uklocalcasespop">All UK Cases (Local Data)</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              England
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="england.html#engmap">Map</a>
+                <a class="dropdown-item" href="england.html#engcases">Cases & Deaths</a>
+                <a class="dropdown-item" href="england.html#englanddeathschart">Daily Deaths</a>
+                <a class="dropdown-item" href="england.html#englandregionalchart">Regional Cases</a>
+                <a class="dropdown-item" href="england.html#regionalcasedeath">Regional Cases & Deaths</a>
+                <a class="dropdown-header">Regions</a>
+                <a class="dropdown-item" href="england.html#eastengchart">East of England</a>
+                <a class="dropdown-item" href="england.html#londonchart">London</a>
+                <a class="dropdown-item" href="england.html#midlandschart">The Midlands</a>
+                <a class="dropdown-item" href="england.html#northeastchart">North East & Yorkshire</a>
+                <a class="dropdown-item" href="england.html#northwestchart">North West</a>
+                <a class="dropdown-item" href="england.html#southeastchart">South East</a>
+                <a class="dropdown-item" href="england.html#southwestchart">South West</a>
+                <a class="dropdown-header">Local</a>
+                <a class="dropdown-item" href="england.html#allengcases">All Local Cases</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Scotland
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="index.html#scotscases">Cases & Deaths</a>
+                  <a class="dropdown-item" href="https://www.travellingtabby.com/scotland-coronavirus-tracker/">All Data - Scotland Coronavirus Tracker</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Wales
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="wales.html#walesmap">Map</a>
+                <a class="dropdown-item" href="wales.html#walesregionalcases">Regional Chart</a>
+                <a class="dropdown-item" href="wales.html#walescases">Cases</a>
+                <a class="dropdown-item" href="wales.html#walesdeaths">Deaths</a>
+                <a class="dropdown-item" href="wales.html#walestests">Tests</a>
+                <a class="dropdown-item" href="wales.html#walesregionalpie">Regional Pie Chart</a>
+                <a class="dropdown-header">NHS Regions</a>
+                <a class="dropdown-item" href="wales.html#aneurincases">Aneurin Bevan</a>
+                <a class="dropdown-item" href="wales.html#betsicases">Betsi Cadwaladr</a>
+                <a class="dropdown-item" href="wales.html#cardiffcases">Cardiff and Vale</a>
+                <a class="dropdown-item" href="wales.html#cwmcases">Cwm Taf</a>
+                <a class="dropdown-item" href="wales.html#hywelcases">Hywel Dda </a>
+                <a class="dropdown-item" href="wales.html#powyscases">Powys</a>
+                <a class="dropdown-item" href="wales.html#swanseacases">Swansea Bay</a>
+                <a class="dropdown-header">Local</a>
+                <a class="dropdown-item" href="wales.html#waleslocaldata">All Local Cases</a>
+            </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Northern Ireland
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="northernIreland.php#NIcases">Cases</a>
+                <a class="dropdown-item" href="northernIreland.php#NIdeaths">Deaths</a>
+                <a class="dropdown-item" href="northernIreland.php#NImap">Map</a>
+                <a class="dropdown-item" href="northernIreland.php#NIlocalchart">Local Chart</a>
+                <a class="dropdown-item" href="northernIreland.php#NItests">Tests</a>
+                <a class="dropdown-item" href="northernIreland.php #NIdemographics">Case & Death Demographics</a>
+                <a class="dropdown-header">Local</a>
+                <a class="dropdown-item" href="northernIreland.php#NIlocaldata">All Local Cases</a>
+                <a class="dropdown-item" href="northernIreland.php#antrimcases">Antrim & Newtownabbey</a>
+                <a class="dropdown-item" href="northernIreland.php#ardscases">Ards & North Down</a>
+                <a class="dropdown-item" href="northernIreland.php#armaghcases">Armagh, Banbridge, & Craigavon</a>
+                <a class="dropdown-item" href="northernIreland.php#belfastcases">Belfast</a>
+                <a class="dropdown-item" href="northernIreland.php#causewaycases">Causeway Coast & Glens</a>
+                <a class="dropdown-item" href="northernIreland.php#derrycases">Derry & Strabane</a>
+                <a class="dropdown-item" href="northernIreland.php#fermanaghcases">Fermanagh & Omagh</a>
+                <a class="dropdown-item" href="northernIreland.php#lisburncases">Lisburn & Castlereagh</a>
+                <a class="dropdown-item" href="northernIreland.php#midantrimcases">Mid & East Antrim</a>
+                <a class="dropdown-item" href="northernIreland.php#midulstercases">Mid Ulster</a>
+                <a class="dropdown-item" href="northernIreland.php#newrycases">Newry, Mourne, & Down</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#worldcases">World</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ONS.html">ONS Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.buymeacoffee.com/coronainfo">Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#aboutdata">About the Data</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Further Information
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="furtherInformation.php#symptoms">Symptoms</a>
+                  <a class="dropdown-item" href="furtherInformation.php#prevention">Prevention</a>
+                  <a class="dropdown-item" href="furtherInformation.php#rules">Government Rules & Guidelines</a>
+                  <a class="dropdown-item" href="furtherInformation.php#stayathome">Stay at Home Guide</a>
+                  <a class="dropdown-item" href="furtherInformation.php#news">News</a>
+                  <a class="dropdown-item" href="furtherInformation.php#sources">Sources</a>
+              </div>
+            </li>
+          </ul>
+        </div>  
+
+     
+      </nav>
+
+      <header>
+        <h1>ONS Coronavirus Death Data</h1>
+        
+      </header>
+
+      <!--Lead Information-->
+      <div class="container lead-info">
+        
+        <div class="row ">
+
+          <div class="top-info">
+              <div class="live-update-table">
+                <div id="ONS-deaths-live-table"></div>
+              </div>
+            <p class="small-info">ONS data released every week</p>
+          </div>
+
+        </div>
+
+        <div class="small-support">
+          <a href="https://www.buymeacoffee.com/coronainfo">
+          <button type="button" class="btn btn-outline-primary">Support the Site!</button>
+          </a>
+        </div>
+
+      </div>
+
+
+      <!--Main Content-->
+      <div class="container-fluid">
+
+        <!-- ONS Total & UK/Age Gender -->
+        <div class="row">
+
+            <div class="col-lg container uk-class">
+                <div class="chart-container">
+                    <h3>UK ONS Deaths</h3>
+                    <div class="update-chart">
+                        <div id="ONS-total-deaths-live-line-chart"></div>
+                    </div>
+                    <p class="sources">
+                        This data includes deaths reported for England, Scotland, Wales, and Northern Ireland.
+                        <br>
+                        The 'UK Total Deaths' includes the latest ONS data with the latest death data released by each national government.
+                        This figure is an estimate and will change with every update. 
+                    </p>
+                </div>
+            </div>
+
+            
+            <div class="col-lg container uk-class">
+                <div class="chart-container">
+                    <h3>UK ONS Deaths by Age</h3>
+                    <div class="update-chart">
+                        <div id="ONS-UK-age-live-pie-chart"></div>
+                    </div>
+                    <p class="sources">
+                        This data includes deaths reported for England, Scotland, Wales, and Northern Ireland.
+                    </p>
+                </div>
+            </div>
+            
+
+        <!--end of row-->
+        </div>
+
+        
+        <!--ONS Gender-->
+        <div class="row">
+
+            <div class="col-lg container uk-class">
+                <div class="chart-container">
+                    <h3>UK ONS Deaths by Age & Gender</h3>
+                    <div class="update-chart">
+                        <div id="ONS-UK-age-gender-live-column-chart"></div>
+                    </div>
+                    <p class="sources">
+                        This data includes deaths reported for England, Scotland, Wales, and Northern Ireland.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg container uk-class">
+              <div class="chart-container">
+                <h3>England & Wales Deaths by Age & Gender</h3>
+                <div class="update-chart">
+                  <div id="ONS-age-gender-live-column-chart"></div>
+                </div>
+                <p class="sources">
+                  This data includes only deaths that occurred in England and Wales. They are detailed by 'Weekly Occurrences'.
+                </p>
+              </div>
+          </div>   
+
+        <!--end of row-->
+        </div>
+
+        <!-- ONS regional -->
+        <div class="row">
+
+            <div class="col-lg container uk-class">
+                <div class="chart-container">
+                    <h3>England & Wales ONS Deaths by Region</h3>
+                    <div class="update-chart">
+                        <div id="ONS-regional-live-line-chart"></div>
+                    </div>
+                    <p class="sources">
+                        This data includes only deaths that occurred in England and Wales. They are detailed by 'Weekly Occurrences'.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- About ONS & Donate -->
+        <div class="row">
+            <div class="col-lg container UK-class" id="about">
+                <div class="extra-info">
+                  <h3>About the Data</h3>
+                  <p>
+                    The data shown above has been collected from the 
+                    <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales">
+                      Office for National Statistics</a>.
+
+                      <br>
+                      The data is released once per week, for the previous week's data. As a result, 
+                      the ONS data is always at least 10 days behind the latest death data.
+                  </p>
+  
+                </div>
+              </div>
+
+              <div class="col-lg container">
+                <div class="extra-info">
+                  <h3>Support</h3>
+                  <p>If you have found this page useful, please consider donating to help keep the site running.
+                    <br>
+                    All support is gratefully received!
+                  </p>
+                  <div class="donate-class">
+    
+                    <style>.bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}
+                    .bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#FF5F5F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 20px !important;letter-spacing:-0.08px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Titillium Web', sans-serif !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}
+                    .bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/coronainfo"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Support the Site!"><span style="margin-left:15px;font-size:19px !important;">Support the Site!</span></a>
+      
+                  </div>
+                </div>
+    
+    
+              </div>
+
+        </div>
+
+
+        <!-- Further Info Button-->
+        <div class="row">
+          <div class="col-lg container uk-class" id="furtherinfo">
+              <div class="swap-button">
+                <a href="furtherInformation.php">
+                <button type="button" class="btn btn-info">Further Information</button>
+              </a>
+              </div>
+          </div>
+
+        <!--end of row-->
+        </div>
+ 
+
+      <!--end of container-fluid-->
+      </div>
+
+      <!-- Social media section-->
+      <section>
+        <div class="social-media container">
+          <!--Facebook sdk-->
+          <div id="fb-root"></div>
+          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+
+          <div data-href="https://www.coronainfo.uk" data-layout="button" data-size="large">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.coronainfo.uk%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/share?url=https://www.coronainfo.uk&text=Up-to-date Coronavirus Info!" class="fab fa-twitter"></a>
+          </div>
+        </div>
+      </section>
+      <!--End of social media section-->    
+
+      <!-- Footer-->
+      <footer>
+        Email: <a href="mailto:contact@coronainfo.uk?Subject=CoronaInfo" target="_top">contact@coronainfo.uk</a>
+      </footer>
+
+      <!-- Scroll button -->
+      <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
+
+      <!--Data Retrieval & Custom JS-->
+      <script src="JS/responsive.js"></script>
+      <script src="JS/ONSLiveUpdate.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+    </body>
+
+
+</html>
