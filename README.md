@@ -1,12 +1,12 @@
 # CoronaInfoUK
-A site for displaying coronavirus information in the UK.
+A project for displaying coronavirus information in the UK.
 <br/>
 Visit the live site <a href="https://coronainfo.uk">CoronaInfoUK</a>
 
 ## Introduction
-This site was initially developed in March 2020 as a substitute for the lack of statistical and informative data released by the UK government.
-Since that time, the site has been updated to reflect new data collection methods. 
-The site currently incorporates API data from <a href="https://coronavirus.data.gov.uk/">the official government site</a>,
+This project was initially developed in March 2020 as a substitute for the lack of statistical and informative data released by the UK government.
+Since that time, the project has been updated to reflect new data collection methods. 
+The project currently incorporates API data from <a href="https://coronavirus.data.gov.uk/">the official government site</a>,
 as well as data manually input into a Google Sheets database. 
 The database can be viewed here: <a href="https://docs.google.com/spreadsheets/d/1JfqJ153dHK8AabuJvJ2V4cbRWOiywP9HQCEwFUBIxxc/edit?usp=sharing">UK COVID-19 - CoronaInfoUK Sheet</a>.
 
@@ -36,7 +36,7 @@ Please see the jQuery guide for the latest installation process for your OS:
 <a href="https://jquery.com/download/">Download jQuery </a>
 
 ## Usage
-This site is predominantly designed with data from the UK in mind. 
+This project is predominantly designed with data from the UK in mind. 
 However, the data sources for the charts can be altered very easily by simply changing the URLs in the GET requests for each chart.
 
 ## Project Status
@@ -45,3 +45,5 @@ This project will continue to be updated as additional sources of statistical da
 ## Support 
 Please contact contact@coronainfo.uk for more support or information about this project.
 
+## License 
+MIT License
