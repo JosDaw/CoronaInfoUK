@@ -25,7 +25,7 @@ The chart below uses API data combined with Google Charts
 
 The charts below use Google Sheets data with Google Charts
 <br/>
-<img src="/images/UKData.png" alt="UK Data" width="400"/>
+<img src="/images/UKData.png" alt="UK Data" width="600"/>
 
 
 ## Installation
