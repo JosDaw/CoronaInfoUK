@@ -1,42 +1,11 @@
-//Global settings
-// Highcharts.setOptions({
-//   lang: {
-//     thousandsSep: ','
-//   }
-// });
 
-// //Local Chart
-// Highcharts.chart('NI-Local-Cases', {
-//   title: {
-//     text: null
-//   },
-
-//   data: {
-//     googleSpreadsheetKey: '1YkiOopVYTcjRVMVBH_5qfyQzvFvmRn8wFrK2mVwg8k8',
-//     googleSpreadsheetWorksheet: 'ogzvz25', 
-//   },
-
-//   yAxis: [{ 
-//     title: {
-//       text: 'Cases',
-//     },
-//     labels: {
-//       formatter:function() {
-//         return Highcharts.numberFormat(this.value, 0, '', ',');
-//       },
-//       style: {
-//         color: '#2b908f'
-//       }
-//     },
-//   }],
-
-// });
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 
 //Google Charts
 google.charts.load('current', {packages: ['corechart','controls', 'table', 'line']});
-google.charts.setOnLoadCallback(NICasesLiveTable); //Load NI Cases Live Update Table
-google.charts.setOnLoadCallback(NIDeathsLiveTable); //Load NI deaths Live Update Table
 google.charts.setOnLoadCallback(NIcasesLineChart); //NI cases line combo chart
 google.charts.setOnLoadCallback(NIdeathsLineChart); //NI deaths line combo chart
 google.charts.setOnLoadCallback(NITestsLineChart); //NI tests chart
@@ -54,58 +23,48 @@ google.charts.setOnLoadCallback(midantrimLineChart); //load mid antrim
 google.charts.setOnLoadCallback(NILocalCasesLineChart); //local cases line chart
 
 //Load NI Cases Live Update Table
-function NICasesLiveTable() {
-  $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure={%22date%22:%22date%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22,%22cumCasesByPublishDate%22:%22cumCasesByPublishDate%22}",
-    dataType: "json",
-    type: "GET",
-    contentType: "application/json; charset=utf-8",
-    success: function (data) {
-      let arrData = [['Total Cases']];
-
-      arrData.push([data['data'][0]['cumCasesByPublishDate']]);
-  
-      let options = {
-        showRowNumber: false,
-      };
-
-      let figures = google.visualization.arrayToDataTable(arrData)
-      let chart = new google.visualization.Table(document.getElementById('NI-cases-live-table'));
-      chart.draw(figures, options);
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-        console.log('Got an Error');
-    }
+function NICasesLiveTable(){
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json');
+  xhr.addEventListener('readystatechange', function(e) {
+      if (e.target.readyState === 4 && e.target.status === 200) {
+        let objectsArray = JSON.parse(e.target.responseText);
+        
+        let newCases = objectsArray['data'][0].newCasesBySpecimenDate;
+        let cumCases = numberWithCommas(objectsArray['data'][0].cumCasesBySpecimenDate);
+        document.getElementById(`NI-live-cases`).innerHTML = 'Cases: <br />' + cumCases;
+        document.getElementById(`new-NI-Cases`).innerHTML = 'New: ' + newCases;
+      }
+      else if(e.target.readyState === 4 && e.target.status != 200) {
+        document.getElementById(`NI-live-cases`).innerHTML = 'Cases currently available';
+      }
   });
-
+  
+  xhr.send(null);
 }
+NICasesLiveTable();
 
 //Load NI Deaths Live Update Table
-function NIDeathsLiveTable() {
-  $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeathsByPublishDate%22:%22newDeathsByPublishDate%22,%22cumDeathsByPublishDate%22:%22cumDeathsByPublishDate%22%7D&format=json",
-    dataType: "json",
-    type: "GET",
-    contentType: "application/json; charset=utf-8",
-    success: function (data) {
-      let arrData = [['Total Deaths']];
-
-      arrData.push([data['data'][0]['cumDeathsByPublishDate']]);
-
-      let options = {
-        showRowNumber: false,
-      };
-
-      let figures = google.visualization.arrayToDataTable(arrData)
-      let chart = new google.visualization.Table(document.getElementById('NI-deaths-live-table'));
-      chart.draw(figures, options);
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-        console.log('Got an Error');
-    }
+function NIDeathsLiveTable(){
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=json');
+  xhr.addEventListener('readystatechange', function(e) {
+      if (e.target.readyState === 4 && e.target.status === 200) {
+        let objectsArray = JSON.parse(e.target.responseText);
+        
+        let newCases = objectsArray['data'][0].newDeaths28DaysByDeathDate;
+        let cumCases = numberWithCommas(objectsArray['data'][0].cumDeaths28DaysByDeathDate);
+        document.getElementById(`NI-live-deaths`).innerHTML = 'Deaths: <br />' + cumCases;
+        document.getElementById(`new-NI-deaths`).innerHTML = 'New: ' + newCases;
+      }
+      else if(e.target.readyState === 4 && e.target.status != 200) {
+        document.getElementById(`NI-live-deaths`).innerHTML = 'Deaths currently available';
+      }
   });
-
+  
+  xhr.send(null);
 }
+NIDeathsLiveTable();
 
 function NILocalCasesLineChart() {
 
@@ -116,7 +75,7 @@ function NILocalCasesLineChart() {
 
 function handleNILocalCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -177,7 +136,7 @@ function handleNILocalCasesLineChartQuery(response) {
 //NI Cases & Daily Cases Combo chart
 function NIcasesLineChart() {
   $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure={%22date%22:%22date%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22,%22cumCasesByPublishDate%22:%22cumCasesByPublishDate%22}",
+    url: "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json",
     dataType: "json",
     type: "GET",
     contentType: "application/json; charset=utf-8",
@@ -186,9 +145,7 @@ function NIcasesLineChart() {
 
       // Loop through each data and populate the array.
       $.each(data['data'].reverse(), function (index, value) {
-        if(value.cumCasesByPublishDate > 0){
-          arrData.push([value.date, value.newCasesByPublishDate, value.cumCasesByPublishDate]);
-        }
+        arrData.push([value.date, value.newCasesBySpecimenDate, value.cumCasesBySpecimenDate]);
       });
 
       let options = {
@@ -232,7 +189,7 @@ function NIcasesLineChart() {
 //NI Deaths & Daily Deaths Combo chart
 function NIdeathsLineChart() {
   $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeathsByPublishDate%22:%22newDeathsByPublishDate%22,%22cumDeathsByPublishDate%22:%22cumDeathsByPublishDate%22%7D&format=json",
+    url: "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Northern%2520Ireland&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=json",
     dataType: "json",
     type: "GET",
     contentType: "application/json; charset=utf-8",
@@ -241,9 +198,7 @@ function NIdeathsLineChart() {
 
       // Loop through each data and populate the array.
       $.each(data['data'].reverse(), function (index, value) {
-        if(value.cumDeathsByPublishDate > 0){
-          arrData.push([value.date, value.newDeathsByPublishDate, value.cumDeathsByPublishDate]);
-        }
+          arrData.push([value.date, value.newDeaths28DaysByDeathDate, value.cumDeaths28DaysByDeathDate]);
       });
 
       let options = {
@@ -294,7 +249,7 @@ function NITestsLineChart() {
 
 function handleNITestsLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -348,7 +303,7 @@ function NIDemographicsChart() {
 
 function handleNIDemographicsChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -410,7 +365,7 @@ function NIDemographicsGenderChart() {
 
 function handleNIDemographicsGenderChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -460,7 +415,7 @@ function NIDeathDemographicsChart() {
 
 function handleNIDeathDemographicsChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -522,7 +477,7 @@ function NIDeathDemographicsGenderChart() {
 
 function handleNIDeathDemographicsGenderChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -610,7 +565,7 @@ function antrimLineChart() {
 
 function handleantrimQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -670,7 +625,7 @@ function armaghLineChart() {
 
 function handlearmaghQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -728,7 +683,7 @@ function belfastLineChart() {
 
 function handlebelfastQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -783,7 +738,7 @@ function causewayLineChart() {
 
 function handlecausewayQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -843,7 +798,7 @@ function fermanaghLineChart() {
 
 function handlefermanaghQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -904,7 +859,7 @@ function midantrimLineChart() {
 
 function handlemidantrimQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 

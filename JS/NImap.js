@@ -387,7 +387,7 @@ $(document).ready(function(){
  
   function handleantrimCasesLiveTableQuery(response) {
     if (response.isError()) {
-      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
       return;
     }
  
@@ -414,7 +414,7 @@ function ardsCasesLiveTable() {
 
 function handleardsCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -441,7 +441,7 @@ function armaghCasesLiveTable() {
 
 function handlearmaghCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -468,7 +468,7 @@ function belfastCasesLiveTable() {
 
 function handlebelfastCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -495,7 +495,7 @@ function causewayCasesLiveTable() {
 
 function handlecausewayCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -522,7 +522,7 @@ function derryCasesLiveTable() {
 
 function handlederryCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -549,7 +549,7 @@ function fermanaghCasesLiveTable() {
 
 function handlefermanaghCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -577,7 +577,7 @@ function lisburnCasesLiveTable() {
 
 function handlelisburnCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -605,7 +605,7 @@ function midantrimCasesLiveTable() {
 
 function handlemidantrimCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -632,7 +632,7 @@ function midulsterCasesLiveTable() {
 
 function handlemidulsterCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -659,7 +659,7 @@ function newryCasesLiveTable() {
 
 function handlenewryCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 

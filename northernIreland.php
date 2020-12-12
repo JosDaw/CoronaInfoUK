@@ -64,17 +64,14 @@
           
           <div class="row ">
             <div class="top-info">
-              <p>Cases:</p>
-              <div class="live-update-table">
-                <div id="NI-cases-live-table"></div>
-              </div>
+              <p id="NI-live-cases">
+              </p>
+              <p class="updated-info" id="new-NI-Cases"></p>
             </div>
             <div class="top-info">
-              <p>Deaths: <br/> 557</p>
-              <!-- <div class="live-update-table">
-                <div id="NI-deaths-live-table"></div>
-              </div> -->
-            </div>
+              <p id="NI-live-deaths"></p>
+              <p class="updated-info" id="new-NI-deaths"></p>
+            </div>  
           </div>
 
         <p class="medium-info">            
@@ -348,10 +345,9 @@
           <div class="col-lg container NI-class" id="NIdeaths">
               <div class="chart-container">
                 <h3>Northern Ireland Deaths</h3>
-                <p>Currently unavailable as the data is being revised</p>
-                <!-- <div class="update-chart">
+                <div class="update-chart">
                   <div id="NI-Deaths-Daily"></div>
-                </div> -->
+                </div>
                 <p class="sources"> 
                   Updated daily.
                   <br />

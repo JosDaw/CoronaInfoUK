@@ -44,9 +44,7 @@
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        <!--[if lt IE 7]>
-          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please change your browser to see the best version of this site.</p>
-        <![endif]-->
+
       <?php include("PHP/navigation.php"); ?>
 
       <header>
@@ -63,9 +61,8 @@
             <p class="updated-info" id="new-UK-Cases"></p>
           </div>
           <div class="top-info">
-            <p>Deaths: <br />41,358</p>
-            <!-- <p id="UK-deaths"></p> -->
-            <!-- <p class="updated-info" id="new-UK-deaths"></p> -->
+            <p id="UK-deaths"></p>
+            <p class="updated-info" id="new-UK-deaths"></p>
           </div>
           <div class="top-info">
             <p id="UK-tests"></p>
@@ -143,7 +140,7 @@
               </div>
 
               <p class="sources">
-                Updated daily. (Data is currently being revised and is unable.)
+                Updated daily.
                 <br/>
                 Source: <a href="https://coronavirus.data.gov.uk">coronavirus.data.gov.uk</a>
                 <br />
@@ -370,7 +367,7 @@
             <div class="chart-container">
               <h3>All England Data</h3>
                <div class="hideButton">
-              <a href="england.html">
+              <a href="england.php">
                 <button type="button" class="btn btn-info">See England Regional & Local Data</button>
               </a>
               </div>
@@ -447,7 +444,7 @@
             <div class="chart-container">
               <h3>All Wales Data</h3>
               <div class="hideButton">
-                <a href="wales.html">
+                <a href="wales.php">
                   <button type="button" class="btn btn-info">See Wales Regional & Local Data</button>
                 </a>
               </div>

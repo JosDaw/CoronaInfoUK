@@ -17,7 +17,7 @@ function ONSDeathsLiveTable() {
   
   function handleONSDeathsLiveTableQuery(response) {
     if (response.isError()) {
-      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
       return;
     }
   
@@ -43,7 +43,7 @@ function TotalDeathsAreaChart() {
 
 function handleTotalDeathsAreaChartQuery(response) {
 if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
 }
 
@@ -106,7 +106,7 @@ function UKAgeDeathsPieChart() {
   
   function handleUKAgeDeathsPieChartQuery(response) {
     if (response.isError()) {
-      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
       return;
     }
   
@@ -137,7 +137,7 @@ function UKTotalByAgeGenderColumn() {
   
 function handleUKTotalByAgeGenderColumnQuery(response) {
 if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
 }
 
@@ -209,7 +209,7 @@ function ByAgeGenderColumn() {
   
 function handleByAgeGenderColumnQuery(response) {
 if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
 }
 
@@ -275,7 +275,7 @@ function ONSRegionalDeathsLineChart() {
   
 function handleONSRegionalDeathsLineChartQuery(response) {
 if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
 }
 

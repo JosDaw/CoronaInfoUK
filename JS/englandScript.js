@@ -20,7 +20,7 @@ function numberWithCommas(x) {
 //England cases live table
 function EnglandCasesLiveTable(){
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json');
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json');
   xhr.addEventListener('readystatechange', function(e) {
       if (e.target.readyState === 4 && e.target.status === 200) {
         let objectsArray = JSON.parse(e.target.responseText);
@@ -41,13 +41,13 @@ EnglandCasesLiveTable();
 
 function EnglandDeathsLiveTable(){
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeathsByDeathDate%22:%22newDeathsByDeathDate%22,%22cumDeathsByDeathDate%22:%22cumDeathsByDeathDate%22%7D&format=json');
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=json');
   xhr.addEventListener('readystatechange', function(e) {
       if (e.target.readyState === 4 && e.target.status === 200) {
         let objectsArray = JSON.parse(e.target.responseText);
         
-        let newCases = numberWithCommas(objectsArray['data'][0].newDeathsByDeathDate);
-        let cumCases = numberWithCommas(objectsArray['data'][0].cumDeathsByDeathDate);
+        let newCases = numberWithCommas(objectsArray['data'][0].newDeaths28DaysByDeathDate);
+        let cumCases = numberWithCommas(objectsArray['data'][0].cumDeaths28DaysByDeathDate);
         document.getElementById(`eng-live-deaths`).innerHTML = 'Deaths: <br />' + cumCases;
         document.getElementById(`new-eng-deaths`).innerHTML = 'New: ' + newCases;
       }
@@ -62,7 +62,7 @@ EnglandDeathsLiveTable();
 
 function EnglandTestsLive(){
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newPillarOneTestsByPublishDate%22:%22newPillarOneTestsByPublishDate%22,%22newPillarTwoTestsByPublishDate%22:%22newPillarTwoTestsByPublishDate%22,%22newPillarThreeTestsByPublishDate%22:%22newPillarThreeTestsByPublishDate%22,%22newPillarFourTestsByPublishDate%22:%22newPillarFourTestsByPublishDate%22,%22newTestsByPublishDate%22:%22newTestsByPublishDate%22,%22cumPillarOneTestsByPublishDate%22:%22cumPillarOneTestsByPublishDate%22,%22cumPillarTwoTestsByPublishDate%22:%22cumPillarTwoTestsByPublishDate%22,%22cumPillarThreeTestsByPublishDate%22:%22cumPillarThreeTestsByPublishDate%22,%22cumPillarFourTestsByPublishDate%22:%22cumPillarFourTestsByPublishDate%22,%22cumTestsByPublishDate%22:%22cumTestsByPublishDate%22%7D&format=json');
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newPillarOneTestsByPublishDate%22:%22newPillarOneTestsByPublishDate%22,%22newPillarTwoTestsByPublishDate%22:%22newPillarTwoTestsByPublishDate%22,%22newPillarThreeTestsByPublishDate%22:%22newPillarThreeTestsByPublishDate%22,%22newPillarFourTestsByPublishDate%22:%22newPillarFourTestsByPublishDate%22,%22newTestsByPublishDate%22:%22newTestsByPublishDate%22,%22cumPillarOneTestsByPublishDate%22:%22cumPillarOneTestsByPublishDate%22,%22cumPillarTwoTestsByPublishDate%22:%22cumPillarTwoTestsByPublishDate%22,%22cumPillarThreeTestsByPublishDate%22:%22cumPillarThreeTestsByPublishDate%22,%22cumPillarFourTestsByPublishDate%22:%22cumPillarFourTestsByPublishDate%22,%22cumTestsByPublishDate%22:%22cumTestsByPublishDate%22%7D&format=json');
   xhr.addEventListener('readystatechange', function(e) {
       if (e.target.readyState === 4 && e.target.status === 200) {
         let objectsArray = JSON.parse(e.target.responseText);
@@ -85,7 +85,7 @@ EnglandTestsLive();
 //England Cases & Daily combo chart
 function EnglandCasesLineChart() {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json');
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json');
   xhr.addEventListener('readystatechange', function(e) {
       if (e.target.readyState === 4 && e.target.status === 200) {
 
@@ -143,57 +143,57 @@ function EnglandCasesLineChart() {
 }
 
 //England Deaths & Daily combo chart
-// function EnglandDeathsLineChart() {
-//   $.ajax({
-//     url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeathsByDeathDate%22:%22newDeathsByDeathDate%22,%22cumDeathsByDeathDate%22:%22cumDeathsByDeathDate%22%7D&format=json",
-//     dataType: "json",
-//     type: "GET",
-//     contentType: "application/json; charset=utf-8",
-//     success: function (data) {
-//       let arrData = [['Date', 'Daily Deaths', 'Total Deaths']];    // Define an array and assign columns for the chart.
+function EnglandDeathsLineChart() {
+  $.ajax({
+    url: "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=json",
+    dataType: "json",
+    type: "GET",
+    contentType: "application/json; charset=utf-8",
+    success: function (data) {
+      let arrData = [['Date', 'Daily Deaths', 'Total Deaths']];    // Define an array and assign columns for the chart.
 
-//       // Loop through each data and populate the array.
-//       $.each(data['data'].reverse(), function (index, value) {
-//         arrData.push([value.date, value.newDeathsByDeathDate, value.cumDeathsByDeathDate]);
-//       });
+      // Loop through each data and populate the array.
+      $.each(data['data'].reverse(), function (index, value) {
+        arrData.push([value.date, value.newDeaths28DaysByDeathDate, value.cumDeaths28DaysByDeathDate]);
+      });
 
-//       let options = {
-//         height: 450,
-//         legend: { position: 'bottom'},
-//         series: {
-//           0: {targetAxisIndex: 1, type: 'bars', color: '#f9ce1d'},
-//           1: {targetAxisIndex: 0, type: 'line', color: '#D7263D' }
-//         },
-//         hAxis:{slantedText: true,
-//           minorGridlines:{count:0},
-//           textStyle: {
-//             fontSize: 10
-//           }
-//         },
-//         vAxis:{
-//           minorGridlines:{count:0},
-//           textStyle: {
-//             fontSize: 12
-//           }
-//         },
-//         vAxes: {
-//           0: {title: 'Total Deaths'},
-//           1: {title: 'Daily Deaths'}
-//         },
-//         pointsVisible: false, 
-//         tooltip: {isHtml: true},	
-//         chartArea:  {'height': '70%',top: 10, left: 55, right: 55},
-//       };
+      let options = {
+        height: 450,
+        legend: { position: 'bottom'},
+        series: {
+          0: {targetAxisIndex: 1, type: 'bars', color: '#f9ce1d'},
+          1: {targetAxisIndex: 0, type: 'line', color: '#D7263D' }
+        },
+        hAxis:{slantedText: true,
+          minorGridlines:{count:0},
+          textStyle: {
+            fontSize: 10
+          }
+        },
+        vAxis:{
+          minorGridlines:{count:0},
+          textStyle: {
+            fontSize: 12
+          }
+        },
+        vAxes: {
+          0: {title: 'Total Deaths'},
+          1: {title: 'Daily Deaths'}
+        },
+        pointsVisible: false, 
+        tooltip: {isHtml: true},	
+        chartArea:  {'height': '70%',top: 10, left: 55, right: 55},
+      };
         
-//       let figures = google.visualization.arrayToDataTable(arrData)
-//       let chart = new google.visualization.LineChart(document.getElementById('england-deaths-chart'));
-//       chart.draw(figures, options);
-//     },
-//     error: function (XMLHttpRequest, textStatus, errorThrown) {
-//         console.log('Got an Error');
-//     }
-//   });
-// }
+      let figures = google.visualization.arrayToDataTable(arrData)
+      let chart = new google.visualization.LineChart(document.getElementById('england-deaths-chart'));
+      chart.draw(figures, options);
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        console.log('Got an Error');
+    }
+  });
+}
 
 //England Daily Deaths
 function EnglandDailyDeathsChart() {
@@ -205,7 +205,7 @@ function EnglandDailyDeathsChart() {
 
 function handleEnglandDailyDeathsChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -260,7 +260,7 @@ function handleEnglandDailyDeathsChartQuery(response) {
 
 function EnglandTestsChart() {
   $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newPillarOneTestsByPublishDate%22:%22newPillarOneTestsByPublishDate%22,%22newPillarTwoTestsByPublishDate%22:%22newPillarTwoTestsByPublishDate%22,%22newPillarThreeTestsByPublishDate%22:%22newPillarThreeTestsByPublishDate%22,%22newPillarFourTestsByPublishDate%22:%22newPillarFourTestsByPublishDate%22,%22newTestsByPublishDate%22:%22newTestsByPublishDate%22,%22cumPillarOneTestsByPublishDate%22:%22cumPillarOneTestsByPublishDate%22,%22cumPillarTwoTestsByPublishDate%22:%22cumPillarTwoTestsByPublishDate%22,%22cumPillarThreeTestsByPublishDate%22:%22cumPillarThreeTestsByPublishDate%22,%22cumPillarFourTestsByPublishDate%22:%22cumPillarFourTestsByPublishDate%22,%22cumTestsByPublishDate%22:%22cumTestsByPublishDate%22%7D&format=json",
+    url: "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=England&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newPillarOneTestsByPublishDate%22:%22newPillarOneTestsByPublishDate%22,%22newPillarTwoTestsByPublishDate%22:%22newPillarTwoTestsByPublishDate%22,%22newPillarThreeTestsByPublishDate%22:%22newPillarThreeTestsByPublishDate%22,%22newPillarFourTestsByPublishDate%22:%22newPillarFourTestsByPublishDate%22,%22newTestsByPublishDate%22:%22newTestsByPublishDate%22,%22cumPillarOneTestsByPublishDate%22:%22cumPillarOneTestsByPublishDate%22,%22cumPillarTwoTestsByPublishDate%22:%22cumPillarTwoTestsByPublishDate%22,%22cumPillarThreeTestsByPublishDate%22:%22cumPillarThreeTestsByPublishDate%22,%22cumPillarFourTestsByPublishDate%22:%22cumPillarFourTestsByPublishDate%22,%22cumTestsByPublishDate%22:%22cumTestsByPublishDate%22%7D&format=json",
     dataType: "json",
     type: "GET",
     contentType: "application/json; charset=utf-8",
@@ -323,7 +323,7 @@ function EnglandRegionalCasesLineChart() {
 
 function handleEnglandRegionalCasesLineQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -386,7 +386,7 @@ function EnglandRegionalCasesDeathsChart() {
 
 function handleEnglandRegionalCasesDeathsChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -455,7 +455,7 @@ function eastEngCasesLineChart() {
 
 function handleeastEngCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -513,7 +513,7 @@ function LondonCasesLineChart() {
 
 function handleLondonCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -572,7 +572,7 @@ function MidlandsCasesLineChart() {
 
 function handleMidlandsCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -628,7 +628,7 @@ function NorthEastCasesLineChart() {
 
 function handleNorthEastCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -686,7 +686,7 @@ function NorthWestCasesLineChart() {
 
 function handleNorthWestCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -742,7 +742,7 @@ function SouthEastCasesLineChart() {
 
 function handleSouthEastCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -797,7 +797,7 @@ function southWestCasesLineChart() {
 
 function handlesouthWestCasesLineChartQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 

@@ -131,7 +131,7 @@ $(function() {
 
  function handleAneurinCasesLiveTableQuery(response) {
    if (response.isError()) {
-     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
      return;
    }
 
@@ -158,7 +158,7 @@ $(function() {
 
  function handlebetsiCasesLiveTableQuery(response) {
    if (response.isError()) {
-     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
      return;
    }
 
@@ -185,7 +185,7 @@ $(function() {
 
  function handlecardiffCasesLiveTableQuery(response) {
    if (response.isError()) {
-     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
      return;
    }
 
@@ -212,7 +212,7 @@ $(function() {
 
  function handlecwmCasesLiveTableQuery(response) {
    if (response.isError()) {
-     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
      return;
    }
 
@@ -239,7 +239,7 @@ $(function() {
 
  function handlehywelCasesLiveTableQuery(response) {
    if (response.isError()) {
-     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
      return;
    }
 
@@ -266,7 +266,7 @@ $(function() {
 
  function handlepowysCasesLiveTableQuery(response) {
    if (response.isError()) {
-     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
      return;
    }
 
@@ -293,7 +293,7 @@ $(function() {
 
  function handleswanseaCasesLiveTableQuery(response) {
    if (response.isError()) {
-     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
      return;
    }
 

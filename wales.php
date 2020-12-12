@@ -60,17 +60,14 @@
         
         <div class="row ">
           <div class="top-info">
-            <p>Cases:</p>
-            <div class="live-update-table">
-              <div id="wales-cases-live-table"></div>
+              <p id="wales-live-cases">
+              </p>
+              <p class="updated-info" id="new-wales-Cases"></p>
             </div>
-          </div>
-          <div class="top-info">
-            <p>Deaths: <br/> 1,586</p>
-            <div class="live-update-table">
-              <div id="wales-deaths-live-table"></div>
+            <div class="top-info">
+              <p id="wales-live-deaths"></p>
+              <p class="updated-info" id="new-wales-deaths"></p>
             </div>
-          </div>
         </div>
 
         <p class="medium-info">            
@@ -344,10 +341,9 @@
             <div class="col-lg container wales-class" id="walesdeaths">
                 <div class="chart-container">
                   <h3>Wales Deaths</h3>
-                  <p>Currently unavailable as the data is being revised</p>
-                  <!-- <div class="update-chart">
+                  <div class="update-chart">
                     <div id="wales-deaths-chart"></div>
-                  </div> -->
+                  </div>
                   <p class="sources"> 
                     Updated daily.
                     <br />

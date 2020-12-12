@@ -1,6 +1,4 @@
 google.charts.load('current', {packages: ['corechart','controls', 'table', 'line']});
-google.charts.setOnLoadCallback(walesCasesLiveTable);
-google.charts.setOnLoadCallback(walesDeathsLiveTable);
 google.charts.setOnLoadCallback(walesRegionalCasesLineChart);
 google.charts.setOnLoadCallback(walescasesLineChart);
 google.charts.setOnLoadCallback(walesdeathsLineChart);
@@ -14,58 +12,54 @@ google.charts.setOnLoadCallback(hywelLineChart);
 google.charts.setOnLoadCallback(powysLineChart);
 google.charts.setOnLoadCallback(swanseaLineChart);
   
-//Wales Cases Live Update Table
-function walesCasesLiveTable() {
-  $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json",
-    dataType: "json",
-    type: "GET",
-    contentType: "application/json; charset=utf-8",
-    success: function (data) {
-      let arrData = [['Total Cases']];
 
-      arrData.push([data['data'][0]['cumCasesBySpecimenDate']]);
-      let options = {
-        showRowNumber: false,
-      };
-
-      let figures = google.visualization.arrayToDataTable(arrData)
-      let chart = new google.visualization.Table(document.getElementById('wales-cases-live-table'));
-      chart.draw(figures, options);
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-        console.log('Got an Error');
-    }
-  });
-
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+//Wales Cases Live Update Table
+function walesCasesLiveTable(){
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json');
+  xhr.addEventListener('readystatechange', function(e) {
+      if (e.target.readyState === 4 && e.target.status === 200) {
+        let objectsArray = JSON.parse(e.target.responseText);
+        
+        let newCases = numberWithCommas(objectsArray['data'][0].newCasesBySpecimenDate);
+        let cumCases = numberWithCommas(objectsArray['data'][0].cumCasesBySpecimenDate);
+        document.getElementById(`wales-live-cases`).innerHTML = 'Cases: <br />' + cumCases;
+        document.getElementById(`new-wales-Cases`).innerHTML = 'New: ' + newCases;
+      }
+      else if(e.target.readyState === 4 && e.target.status != 200) {
+        document.getElementById(`wales-live-cases`).innerHTML = 'Cases currently available';
+      }
+  });
+  
+  xhr.send(null);
+}
+walesCasesLiveTable();
 
 //Wales deaths increase live table
-function walesDeathsLiveTable() {
-  $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeathsByDeathDate%22:%22newDeathsByDeathDate%22,%22cumDeathsByDeathDate%22:%22cumDeathsByDeathDate%22%7D&format=json",
-    dataType: "json",
-    type: "GET",
-    contentType: "application/json; charset=utf-8",
-    success: function (data) {
-      let arrData = [['Total Deaths']];
-
-      arrData.push([data['data'][0]['cumDeathsByDeathDate']]);
-     
-      let options = {
-        showRowNumber: false,
-      };
-
-      let figures = google.visualization.arrayToDataTable(arrData)
-      let chart = new google.visualization.Table(document.getElementById('wales-deaths-live-table'));
-      chart.draw(figures, options);
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-        console.log('Got an Error');
-    }
+function walesDeathsLiveTable(){
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=json');
+  xhr.addEventListener('readystatechange', function(e) {
+      if (e.target.readyState === 4 && e.target.status === 200) {
+        let objectsArray = JSON.parse(e.target.responseText);
+        
+        let newCases = objectsArray['data'][0].newDeaths28DaysByDeathDate;
+        let cumCases = numberWithCommas(objectsArray['data'][0].cumDeaths28DaysByDeathDate);
+        document.getElementById(`wales-live-deaths`).innerHTML = 'Deaths: <br />' + cumCases;
+        document.getElementById(`new-wales-deaths`).innerHTML = 'New: ' + newCases;
+      }
+      else if(e.target.readyState === 4 && e.target.status != 200) {
+        document.getElementById(`wales-live-deaths`).innerHTML = 'Deaths currently available';
+      }
   });
-
+  
+  xhr.send(null);
 }
+walesDeathsLiveTable();
 
 //Wales regional cases line chart
 function walesRegionalCasesLineChart() {
@@ -77,7 +71,7 @@ function walesRegionalCasesLineChart() {
 
 function handlewalesRegionalCasesLineQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -133,7 +127,7 @@ function handlewalesRegionalCasesLineQuery(response) {
 //Wales cases combo chart
 function walescasesLineChart() {
   $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D",
+    url: "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json",
     dataType: "json",
     type: "GET",
     contentType: "application/json; charset=utf-8",
@@ -186,7 +180,7 @@ function walescasesLineChart() {
 //Wales deaths line chart
 function walesdeathsLineChart() {
   $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeathsByDeathDate%22:%22newDeathsByDeathDate%22,%22cumDeathsByDeathDate%22:%22cumDeathsByDeathDate%22%7D&format=json",
+    url: "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=json",
     dataType: "json",
     type: "GET",
     contentType: "application/json; charset=utf-8",
@@ -195,7 +189,7 @@ function walesdeathsLineChart() {
 
       // Loop through each data and populate the array.
       $.each(data['data'].reverse(), function (index, value) {
-        arrData.push([value.date, value.newDeathsByDeathDate, value.cumDeathsByDeathDate]);
+        arrData.push([value.date, value.newDeaths28DaysByDeathDate, value.cumDeaths28DaysByDeathDate]);
       });
 
       let options = {
@@ -239,7 +233,7 @@ function walesdeathsLineChart() {
 //Wales tests chart
 function walesTestsLineChart() {
   $.ajax({
-    url: "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newPillarOneTestsByPublishDate%22:%22newPillarOneTestsByPublishDate%22,%22newPillarTwoTestsByPublishDate%22:%22newPillarTwoTestsByPublishDate%22,%22newPillarThreeTestsByPublishDate%22:%22newPillarThreeTestsByPublishDate%22,%22newPillarFourTestsByPublishDate%22:%22newPillarFourTestsByPublishDate%22,%22newTestsByPublishDate%22:%22newTestsByPublishDate%22,%22cumPillarOneTestsByPublishDate%22:%22cumPillarOneTestsByPublishDate%22,%22cumPillarTwoTestsByPublishDate%22:%22cumPillarTwoTestsByPublishDate%22,%22cumPillarThreeTestsByPublishDate%22:%22cumPillarThreeTestsByPublishDate%22,%22cumPillarFourTestsByPublishDate%22:%22cumPillarFourTestsByPublishDate%22,%22cumTestsByPublishDate%22:%22cumTestsByPublishDate%22%7D&format=json",
+    url: "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=nation;areaName=Wales&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newPillarOneTestsByPublishDate%22:%22newPillarOneTestsByPublishDate%22,%22newPillarTwoTestsByPublishDate%22:%22newPillarTwoTestsByPublishDate%22,%22newPillarThreeTestsByPublishDate%22:%22newPillarThreeTestsByPublishDate%22,%22newPillarFourTestsByPublishDate%22:%22newPillarFourTestsByPublishDate%22,%22newTestsByPublishDate%22:%22newTestsByPublishDate%22,%22cumPillarOneTestsByPublishDate%22:%22cumPillarOneTestsByPublishDate%22,%22cumPillarTwoTestsByPublishDate%22:%22cumPillarTwoTestsByPublishDate%22,%22cumPillarThreeTestsByPublishDate%22:%22cumPillarThreeTestsByPublishDate%22,%22cumPillarFourTestsByPublishDate%22:%22cumPillarFourTestsByPublishDate%22,%22cumTestsByPublishDate%22:%22cumTestsByPublishDate%22%7D&format=json",
     dataType: "json",
     type: "GET",
     contentType: "application/json; charset=utf-8",
@@ -300,7 +294,7 @@ function walesTestsLineChart() {
 
 // function handleWalesTestsLineChartQuery(response) {
 //   if (response.isError()) {
-//     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+//     console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
 //     return;
 //   }
 
@@ -391,7 +385,7 @@ function aneurinLineChart() {
 
 function handleAneurinQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -446,7 +440,7 @@ function betsiLineChart() {
 
 function handleBetsiQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -502,7 +496,7 @@ function cardiffLineChart() {
 
 function handlecardiffQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -558,7 +552,7 @@ function cwmLineChart() {
 
 function handleCwmQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -614,7 +608,7 @@ function hywelLineChart() {
 
 function handleHywelQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -670,7 +664,7 @@ function powysLineChart() {
 
 function handlePowysQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -726,7 +720,7 @@ function swanseaLineChart() {
 
 function handleSwanseaQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 

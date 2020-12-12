@@ -372,7 +372,7 @@ function eastEngCasesLiveTable() {
 
 function handleeastEngCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -399,7 +399,7 @@ function LondonCasesLiveTable() {
 
 function handleLondonCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -426,7 +426,7 @@ function MidlandsCasesLiveTable() {
 
 function handleMidlandsCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -453,7 +453,7 @@ function NorthEastCasesLiveTable() {
 
 function handleNorthEastCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -480,7 +480,7 @@ function NorthWestCasesLiveTable() {
 
 function handleNorthWestCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -507,7 +507,7 @@ function SouthEastCasesLiveTable() {
 
 function handleSouthEastCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -534,7 +534,7 @@ function SouthWestCasesLiveTable() {
 
 function handleSouthWestCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -560,7 +560,7 @@ function ScotlandCasesLiveTable() {
 
 function handleScotlandCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -586,7 +586,7 @@ function WalesCasesLiveTable() {
 
 function handleWalesCasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 
@@ -613,7 +613,7 @@ function NICasesLiveTable() {
 
 function handleNICasesLiveTableQuery(response) {
   if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    console.log('Error in query:' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
   }
 

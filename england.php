@@ -69,26 +69,12 @@
           </div>
           <div class="top-info">
             <p id="eng-live-deaths"></p>
-            <!-- <p class="updated-info" id="new-eng-deaths"></p> -->
+            <p class="updated-info" id="new-eng-deaths"></p>
           </div>
           <div class="top-info">
             <p id="eng-tests"></p>
             <p class="updated-info" id="new-eng-tests"></p>
           </div>
-
-          <!-- <div class="top-info">
-            <p>Cases:</p>
-            <div class="live-update-table">
-              <div id="england-cases-live-table"></div>
-            </div>
-          </div> -->
-
-          <!-- <div class="top-info">
-            <p>Deaths: <br /> 42,072</p>
-            <div class="live-update-table">
-              <div id="england-deaths-live-table"></div>
-            </div>
-          </div> -->
         </div>
         <p class="medium-info">            
           Updated daily.
@@ -318,8 +304,7 @@
                 <div class="chart-container">
                   <h3>England Deaths</h3>
                   <div class="update-chart">
-                  <p>Currently unavailable as the data is being revised</p>
-                    <!-- <div id="england-deaths-chart"></div> -->
+                    <div id="england-deaths-chart"></div>
                   </div>
                   <p class="sources"> 
                     Updated daily.
